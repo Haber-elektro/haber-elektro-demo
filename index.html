@@ -1,42 +1,71 @@
+<!-- Poniższy kod jest gotowy do wklejenia jako treść strony głównej w systemie iComers lub do użycia jako index.html w hostingu statycznym -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Haber-Elektro</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haber-Elektro - Sklep internetowy</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    header { background: linear-gradient(to right, #0b1e46, #304b8c); color: white; padding: 40px 20px; text-align: center; }
+    nav { display: flex; justify-content: center; flex-wrap: wrap; background-color: #fff; border-bottom: 1px solid #e0e0e0; padding: 15px 0; gap: 15px; }
+    nav a { text-decoration: none; color: #0b1e46; font-weight: 600; }
+    #product-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+    .product-card { border: 1px solid #ccc; border-radius: 10px; padding: 15px; text-align: center; }
+    .product-card img { max-width: 100%; height: auto; border-radius: 8px; }
+    .product-card h3 { color: #0b1e46; font-size: 1.1rem; margin: 10px 0 5px; }
+    .product-card p { font-weight: bold; }
+    .product-card button { background: #0b1e46; color: white; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
 </head>
 <body>
   <header>
-    <img src="https://cdn.example.com/img/logo_haber-elektro.png" alt="Haber-Elektro Logo">
+    <img src="https://raw.githubusercontent.com/yourusername/haber-elektro-demo/main/logo.png" alt="Haber-Elektro Logo" style="max-height: 80px; margin-bottom: 15px;">
     <h1>Haber-Elektro</h1>
     <p>Sklep internetowy z osprzętem i elektroniką dla profesjonalistów</p>
   </header>
 
   <nav>
-    <a href="#produkty">Produkty</a>
-    <a href="#koszyk">Koszyk</a>
+    <a href="#gniazda-wylaczniki">Gniazda i wyłączniki</a>
+    <a href="#oswietlenie">Oświetlenie</a>
+    <a href="#kable-przewody">Kable i przewody</a>
+    <a href="#rozdzielnice">Rozdzielnice</a>
+    <a href="#automatyka-domowa">Automatyka domowa</a>
+    <a href="#osprzet-instalacyjny">Osprzęt instalacyjny</a>
+    <a href="#narzedzia">Narzędzia</a>
+    <a href="#kamery">Kamery</a>
+    <a href="#rtv">RTV</a>
+    <a href="#lan">LAN</a>
+    <a href="#kontakt">Kontakt</a>
   </nav>
 
-  <main id="produkty">
-    <h2>Nasze produkty</h2>
+  <main style="padding: 40px 20px; max-width: 1200px; margin: auto;">
+    <h2 style="text-align: center; font-size: 2rem; color: #0b1e46;">Nasze produkty</h2>
     <div id="product-list"></div>
   </main>
 
-  <section id="koszyk">
-    <h2>Koszyk</h2>
-    <div id="cart-items"></div>
-    <label for="shipping">Wybierz dostawę:</label>
-    <select id="shipping" onchange="updateTotal()">
-      <option value="0">Odbiór osobisty - 0 zł</option>
-      <option value="15">Kurier standard - 15 zł</option>
-      <option value="25">Kurier ekspresowy - 25 zł</option>
-    </select>
-    <p>Łącznie do zapłaty: <span id="total-price">0,00 zł</span></p>
-    <button>Zamów</button>
-  </section>
+  <script>
+    const products = [
+      { name: "Gniazdo pojedyncze LEGRAND", price: 7.99, image: "https://cdn.example.com/images/gniazdo1.jpg" },
+      { name: "Taśma LED 5m 12V IP65", price: 24.99, image: "https://cdn.example.com/images/tasma_led.jpg" },
+      { name: "Przewód YDY 3x2,5mm²", price: 2.39, image: "https://cdn.example.com/images/ydy.jpg" },
+      { name: "Rozdzielnica 12-modułowa IP40", price: 45.50, image: "https://cdn.example.com/images/rozdzielnica.jpg" },
+      { name: "Czujnik ruchu zewnętrzny IP44", price: 29.99, image: "https://cdn.example.com/images/czujnik.jpg" },
+      { name: "Kamera IP WiFi FullHD", price: 129.00, image: "https://cdn.example.com/images/kamera.jpg" }
+    ];
 
-  <script src="products.js"></script>
-  <script src="script.js"></script>
+    const container = document.getElementById("product-list");
+    products.forEach(product => {
+      const el = document.createElement("div");
+      el.className = "product-card";
+      el.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price.toFixed(2)} zł</p>
+        <button>Dodaj do koszyka</button>
+      `;
+      container.appendChild(el);
+    });
+  </script>
 </body>
 </html>
