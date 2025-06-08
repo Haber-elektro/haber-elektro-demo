@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haber-Elektro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="https://cdn.example.com/img/logo_haber-elektro.png" alt="Haber-Elektro Logo">
+    <h1>Haber-Elektro</h1>
+    <p>Sklep internetowy z osprzętem i elektroniką dla profesjonalistów</p>
+  </header>
+
+  <nav>
+    <a href="#produkty">Produkty</a>
+    <a href="#koszyk">Koszyk</a>
+  </nav>
+
+  <main id="produkty">
+    <h2>Nasze produkty</h2>
+    <div id="product-list"></div>
+  </main>
+
+  <section id="koszyk">
+    <h2>Koszyk</h2>
+    <div id="cart-items"></div>
+    <label for="shipping">Wybierz dostawę:</label>
+    <select id="shipping" onchange="updateTotal()">
+      <option value="0">Odbiór osobisty - 0 zł</option>
+      <option value="15">Kurier standard - 15 zł</option>
+      <option value="25">Kurier ekspresowy - 25 zł</option>
+    </select>
+    <p>Łącznie do zapłaty: <span id="total-price">0,00 zł</span></p>
+    <button>Zamów</button>
+  </section>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
